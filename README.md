@@ -851,8 +851,6 @@ Python 3
 
 # Author
 
-**Neha Rehan**
-
 Compiler Construction Project
 
 University of Karachi — UBIT
