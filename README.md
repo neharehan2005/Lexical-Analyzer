@@ -221,6 +221,70 @@ There are two major approaches:
 
 ---
 
+# Whitespace Handling
+
+The lexical analyzer **ignores whitespace** between tokens.
+
+Whitespace includes:
+
+```text
+spaces
+tabs
+```
+
+For example, the following:
+
+```text
+declare    $age1    as    number
+```
+
+and:
+
+```text
+declare $age1 as number
+```
+
+produce the same tokens:
+
+```text
+declare       → declare
+$age1         → Identifier
+as            → as
+number        → Data Type
+```
+
+Leading and trailing whitespace is removed during preprocessing using:
+
+```python
+line = line.strip()
+```
+
+During tokenization, whitespace characters are skipped using:
+
+```python
+if c.isspace():
+    i += 1
+    continue
+```
+
+Therefore, whitespace **does not become a token**. It only separates tokens.
+
+For example:
+
+```text
+show      $age1
+```
+
+is tokenized as:
+
+```text
+show       → show
+$age1      → Identifier
+```
+
+Extra spaces do not affect the lexical classification of the source code.
+
+
 # Keyword Recognition Using Trie
 
 Reserved keywords are stored in the `KEYWORDS` dictionary.
