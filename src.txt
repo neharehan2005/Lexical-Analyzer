@@ -1,0 +1,43 @@
+begin
+{
+    declare $age1 as number set to 17
+    declare $studentName2 as text set to "Sana"
+    declare $isValid3 as truth set to true
+ 
+    #this is comment 
+
+    declare $marks1 as number set to 87
+    declare $courseName2 as text set to "Compiler Construction"
+    declare $passed4 as truth set to false
+
+    declare $numbers1 as number array of 5
+    declare $names2 as text array of 2 set to ["Sana", "Neha"]
+
+    
+    set $marks1 to $marks1 + 5
+
+    show $studentName2
+    show $marks1
+
+    show "Student passed" if $marks1 >= 50
+    otherwise
+    show "Student failed"
+    
+    set $age1 to 18
+    repeat while $age1 < 25
+    {
+        show $age1
+        $age1++
+    }
+
+    task $calculate()
+    {
+        declare $total1 as number set to 100
+        show "hello world"
+        return
+    }
+    $calculate()
+
+    ask $studentName2 with "Enter your name"
+}
+end
